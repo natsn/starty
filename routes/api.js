@@ -4,6 +4,7 @@ var express = require('express'),
 // Models
 var Todo = require('../models/todo');
 
+// Oh CRUD...
 Todo.methods(['get', 'put', 'post', 'delete']);
 Todo.register(router,'/todos');
 
