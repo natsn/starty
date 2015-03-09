@@ -8,7 +8,7 @@ var projectSchema = new mongoose.Schema({
     title: String,
     due: Date,
     created: Date
-    //tasks:
+    // tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }]
 });
 
 
