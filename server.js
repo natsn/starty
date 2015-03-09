@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // API
-app.use('/api', require('./routes/api'))
+app.use('/api', require('./routes/api'));
 
 // Start server
 app.listen(3000);

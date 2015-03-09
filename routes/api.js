@@ -2,10 +2,10 @@ var express = require('express'),
     router = express.Router();
 
 // Models
-var Todo = require('../models/todo');
+var Task = require('../models/task');
 
-Todo.methods(['get', 'put', 'post', 'delete']);
-Todo.register(router,'/todos');
+Task.methods(['get', 'put', 'post', 'delete']);
+Task.register(router,'/tasks');
 
 // router.get('/todos', function(req,res){
 //     res.send('api is working!');
