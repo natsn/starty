@@ -3,12 +3,12 @@ var express = require('express'),
 
 // Models
 var Task = require('../models/task');
-
 Task.methods(['get', 'put', 'post', 'delete']);
 Task.register(router,'/tasks');
 
-// router.get('/todos', function(req,res){
-//     res.send('api is working!');
-// });
+var Project = require('../models/project');
+Project.methods(['get', 'put', 'post', 'delete']);
+Project.register(router,'/projects');
+
 
 module.exports = router;

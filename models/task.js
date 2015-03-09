@@ -4,10 +4,10 @@ var restful = require('node-restful'),
 
 // Schema
 var taskSchema = new mongoose.Schema({
+    _creator : { type: Number, ref: 'User' },
     text: String,
     due: Date,
     created: Date,
-    author: String,
     priority: Number,
     completed: Boolean
 });

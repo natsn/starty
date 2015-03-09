@@ -1,7 +1,9 @@
 // Dependencies
 var express = require('express'),
     mongoose = require('mongoose'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    io = require('socket.io'),
+    passport = require('passport');
 
 // MongoDB
 mongoose.connect('mongodb://localhost/starty');
@@ -15,5 +17,5 @@ app.use(bodyParser.json());
 app.use('/api', require('./routes/api'));
 
 // Start server
-app.listen(3000);
+io.listen(app.listen(3000));
 console.log('API is running on port 3000!');
