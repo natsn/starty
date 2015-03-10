@@ -7,8 +7,9 @@ var projectSchema = new mongoose.Schema({
     _creator : { type: Number, ref: 'User' },
     title: String,
     due: Date,
-    created: Date
-    // tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }]
+    created: Date,
+    tasks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Task' }],
+    delegates: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
 
 

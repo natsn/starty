@@ -9,8 +9,8 @@ var taskSchema = new mongoose.Schema({
     due: Date,
     created: Date,
     priority: Number,
-    completed: Boolean
-    // owners: [{ type: Schema.Types.ObjectId, ref: 'User' }]  ??
+    completed: Boolean,
+    delegates: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
 
 
