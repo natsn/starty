@@ -58,21 +58,23 @@ app.post('/register', function(req, res) {
     });
 });
 
-/* 
-    Socket.io 
+/*
+    Socket.io
 */
 io.on('connection', function(socket){
-    // TODO Authenticate with passport
-    console.log('a user connected');
-    
+
+    io.emit('user connected', 'A user connected!');
+
     socket.on('disconnect', function(){
-        console.log('user disconnected');
+        io.emit('user disconnected', 'A user disconnected!');
     });
 
     socket.on('chat message', function(msg){
-        console.log('message: '+ msg);
-
         io.emit('chat message', msg);
+    });
+
+    socket.on('typing', function(){
+        io.emit('user typing', 'User is typing...');
     });
 });
 

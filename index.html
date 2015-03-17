@@ -29,7 +29,9 @@
         <li>View Calendar</li>
     </ul>
     <hr>
+
     <ul id="messages"></ul>
+    <div id="typing"><p></p></div>
     <form action="">
         <input type="text" id="m" autocomplete="off" />
         <button>Send</button>
@@ -38,6 +40,9 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
+      $('#m').on('keypress', function(){
+        socket.emit('typing');
+      });
       $('form').submit(function(){
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
@@ -45,6 +50,16 @@
       });
       socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
+      });
+      socket.on('user disconnected', function(msg){
+        $('#messages').append($('<li>').text(msg));
+      });
+      socket.on('user connected', function(msg){
+        $('#messages').append($('<li>').text(msg));
+      });
+
+      socket.on('user typing', function(msg){
+        $('#typing p').text(msg).delay(1000).fadeOut(300);
       });
     </script>
 </body>
